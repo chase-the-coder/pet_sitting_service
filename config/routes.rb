@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :bookings, only: [:new, :create, :index]
   root 'bookings#new' # landing page with the form
-  post 'bookings', to: 'bookings#create' # form submission
   get 'admin', to: 'bookings#index' # admin page
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
