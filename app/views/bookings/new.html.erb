@@ -1,25 +1,25 @@
-<%= form_with model: @booking, url: bookings_path, local: true do |form| %>
-  <%= form.fields_for :user do |user_fields| %>
-    <%= user_fields.label :first_name %>
-    <%= user_fields.text_field :first_name %>
+<%= form_with model: @booking, url: bookings_path, local: true, class: "space-y-4" do |form| %>
+  <%= form.fields_for :user, class: "space-y-2" do |user_fields| %>
+    <%= user_fields.label :first_name, class: "block text-sm font-medium text-gray-700" %>
+    <%= user_fields.text_field :first_name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
 
-    <%= user_fields.label :last_name %>
-    <%= user_fields.text_field :last_name %>
+    <%= user_fields.label :last_name, class: "block text-sm font-medium text-gray-700" %>
+    <%= user_fields.text_field :last_name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
   <% end %>
 
-  <%= form.fields_for :animal do |animal_fields| %>
-    <%= animal_fields.label :name %>
-    <%= animal_fields.text_field :name %>
+  <%= form.fields_for :animal, class: "space-y-2" do |animal_fields| %>
+    <%= animal_fields.label :name, class: "block text-sm font-medium text-gray-700" %>
+    <%= animal_fields.text_field :name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
 
-    <%= animal_fields.label :animal_type %>
-    <%= animal_fields.select :animal_type, ['Dog', 'Cat'] %>
+    <%= animal_fields.label :animal_type, class: "block text-sm font-medium text-gray-700" %>
+    <%= animal_fields.select :animal_type, ['Dog', 'Cat'], {}, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
   <% end %>
 
-  <%= form.label :hours_requested %>
-  <%= form.number_field :hours_requested, in: 2..8 %>
+  <%= form.label :hours_requested, class: "block text-sm font-medium text-gray-700" %>
+  <%= form.number_field :hours_requested, in: 2..8, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
 
-  <%= form.label :date_of_service %>
-  <%= form.date_field :date_of_service %>
+  <%= form.label :date_of_service, class: "block text-sm font-medium text-gray-700" %>
+  <%= form.date_field :date_of_service, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
 
-  <%= form.submit %>
+  <%= form.submit "Submit", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
 <% end %>
