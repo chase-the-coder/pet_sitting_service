@@ -1,0 +1,30 @@
+<div class="container mx-auto px-4 mb-8">
+  <h1 class="text-2xl text-center font-bold mb-5">All Bookings</h1>
+
+  <table class="w-6/8 text-left table-auto mx-auto">
+    <thead class="bg-gray-500 text-white">
+      <tr>
+        <th class="px-4 py-2">User First Name</th>
+        <th class="px-4 py-2">User Last Name</th>
+        <th class="px-4 py-2">Animal Name</th>
+        <th class="px-4 py-2">Animal Type</th>
+        <th class="px-4 py-2">Hours Requested</th>
+        <th class="px-4 py-2">Date of Service</th>
+        <th class="px-4 py-2">Total Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr class="<%= cycle('bg-gray-100', 'bg-white') %>">
+          <td class="border px-4 py-2"><%= booking.user.first_name %></td>
+          <td class="border px-4 py-2"><%= booking.user.last_name %></td>
+          <td class="border px-4 py-2"><%= booking.animal.name %></td>
+          <td class="border px-4 py-2"><%= booking.animal.animal_type %></td>
+          <td class="border px-4 py-2"><%= booking.hours_requested %></td>
+          <td class="border px-4 py-2"><%= booking.date_of_service %></td>
+          <td class="border px-4 py-2"><%= number_to_currency(booking.cost) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
