@@ -26,22 +26,16 @@ RSpec.feature "Bookings index", type: :feature do
   end
 
   scenario "Page displays the correct data" do
-    within("tbody") do
-      expect(page).to have_content booking1.user.first_name
-      expect(page).to have_content booking1.user.last_name
-      expect(page).to have_content booking1.animal.name
-      expect(page).to have_content booking1.animal.animal_type
-      expect(page).to have_content booking1.hours_requested
-      expect(page).to have_content booking1.date_of_service
-      expect(page).to have_content booking1.cost
-
-      expect(page).to have_content booking2.user.first_name
-      expect(page).to have_content booking2.user.last_name
-      expect(page).to have_content booking2.animal.name
-      expect(page).to have_content booking2.animal.animal_type
-      expect(page).to have_content booking2.hours_requested
-      expect(page).to have_content booking2.date_of_service
-      expect(page).to have_content booking2.cost
+    [booking1, booking2].each do |booking|
+      within("tbody") do
+        expect(page).to have_content booking.user.first_name
+        expect(page).to have_content booking.user.last_name
+        expect(page).to have_content booking.animal.name
+        expect(page).to have_content booking.animal.animal_type
+        expect(page).to have_content booking.hours_requested
+        expect(page).to have_content booking.date_of_service
+        expect(page).to have_content booking.cost
+      end
     end
   end
 end
