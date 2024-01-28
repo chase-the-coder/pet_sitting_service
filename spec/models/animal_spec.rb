@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Animal, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it { should have_many(:bookings) }
+  end
+
+  describe 'validations' do
+    it { should define_enum_for(:animal_type).with_values(Dog: 0, Cat: 1) }
+  end
+
+  describe 'creation' do
+    it 'raises an error when assigned an invalid animal_type' do
+      animal = build(:animal)
+      expect { animal.animal_type = 'InvalidType' }.to raise_error(ArgumentError)
+    end
+  end
 end
