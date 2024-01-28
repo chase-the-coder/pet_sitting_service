@@ -8,7 +8,7 @@
   <% end %>
 
   <%= form.fields_for :animal, class: "space-y-2" do |animal_fields| %>
-    <%= animal_fields.label :name, class: "block text-sm font-medium text-gray-700" %>
+    <%= animal_fields.label :name, "Animal name", class: "block text-sm font-medium text-gray-700" %>
     <%= animal_fields.text_field :name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
 
     <%= animal_fields.label :animal_type, class: "block text-sm font-medium text-gray-700" %>

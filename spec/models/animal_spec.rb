@@ -7,6 +7,7 @@ RSpec.describe Animal, type: :model do
 
   describe 'validations' do
     it { should define_enum_for(:animal_type).with_values(Dog: 0, Cat: 1) }
+    it { should validate_presence_of(:name) }
   end
 
   describe 'creation' do
