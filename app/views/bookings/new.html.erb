@@ -2,24 +2,42 @@
   <%= form.fields_for :user, class: "space-y-2" do |user_fields| %>
     <%= user_fields.label :first_name, class: "block text-sm font-medium text-gray-700" %>
     <%= user_fields.text_field :first_name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    <% if @booking.user.errors[:first_name].any? %>
+      <p class="text-red-500 text-xs italic"><%= @booking.user.errors[:first_name].join(", ") %></p>
+    <% end %>
 
     <%= user_fields.label :last_name, class: "block text-sm font-medium text-gray-700" %>
     <%= user_fields.text_field :last_name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    <% if @booking.user.errors[:last_name].any? %>
+      <p class="text-red-500 text-xs italic"><%= @booking.user.errors[:last_name].join(", ") %></p>
+    <% end %>
   <% end %>
 
   <%= form.fields_for :animal, class: "space-y-2" do |animal_fields| %>
     <%= animal_fields.label :name, "Animal name", class: "block text-sm font-medium text-gray-700" %>
     <%= animal_fields.text_field :name, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    <% if @booking.animal.errors[:name].any? %>
+      <p class="text-red-500 text-xs italic"><%= @booking.animal.errors[:name].join(", ") %></p>
+    <% end %>
 
     <%= animal_fields.label :animal_type, class: "block text-sm font-medium text-gray-700" %>
     <%= animal_fields.select :animal_type, ['Dog', 'Cat'], {}, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    <% if @booking.animal.errors[:animal_type].any? %>
+      <p class="text-red-500 text-xs italic"><%= @booking.animal.errors[:animal_type].join(", ") %></p>
+    <% end %>
   <% end %>
 
   <%= form.label :hours_requested, class: "block text-sm font-medium text-gray-700" %>
   <%= form.select :hours_requested, options_for_select((2..8).to_a), {}, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
-  
+  <% if @booking.errors[:hours_requested].any? %>
+    <p class="text-red-500 text-xs italic"><%= @booking.errors[:hours_requested].join(", ") %></p>
+  <% end %>
+
   <%= form.label :date_of_service, class: "block text-sm font-medium text-gray-700" %>
   <%= form.date_field :date_of_service, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  <% if @booking.errors[:date_of_service].any? %>
+    <p class="text-red-500 text-xs italic"><%= @booking.errors[:date_of_service].join(", ") %></p>
+  <% end %>
 
-  <%= form.submit "Submit", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  <%= form.submit "Submit", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 cursor-pointer" %>
 <% end %>

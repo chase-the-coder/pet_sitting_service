@@ -16,6 +16,9 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking was successfully created.'
       redirect_to root_path
     else
+      puts '------------------------'
+      puts @booking.errors.full_messages
+      puts '------------------------'
       flash.now[:alert] = @booking.errors.full_messages.join(", ")
       render :new
     end

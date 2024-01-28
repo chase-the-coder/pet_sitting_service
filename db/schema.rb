@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_25_215915) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_28_022825) do
   create_table "animals", force: :cascade do |t|
     t.string "name"
     t.integer "animal_type"
@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_215915) do
     t.integer "animal_id", null: false
     t.integer "hours_requested"
     t.date "date_of_service"
-    t.decimal "total_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["animal_id"], name: "index_bookings_on_animal_id"
