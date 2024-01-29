@@ -29,10 +29,12 @@ rails db:migrate
 rails db:seed
 ```
 
-Running the Server 4. Run the server. This project is using tailwind css, so run the server with the following command
+## Running the Server
+
+4. Run the server. This project is using tailwind css, so run the server with the following command
 
 ```bash
-bin/dev
+rails bin/dev
 ```
 
 Running the Tests

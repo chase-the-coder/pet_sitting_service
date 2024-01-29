@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe Booking, type: :model do
   describe '#cost' do
     let(:user) { create(:user) }
-    let(:booking) { create(:booking, user: user, animal_attributes: { name: 'Rex', animal_type: animal_type }, hours_requested: hours_requested, date_of_service: Date.tomorrow) }
+    let(:booking) do
+      create(:booking, user:, animal_attributes: { name: 'Rex', animal_type: }, hours_requested:,
+                       date_of_service: Date.tomorrow)
+    end
 
     context 'when the animal is a dog' do
       let(:animal_type) { 'Dog' }

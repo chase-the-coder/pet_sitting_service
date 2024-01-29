@@ -10,32 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_28_022825) do
-  create_table "animals", force: :cascade do |t|
-    t.string "name"
-    t.integer "animal_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.1].define(version: 20_240_128_022_825) do
+  create_table 'animals', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'animal_type'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "animal_id", null: false
-    t.integer "hours_requested"
-    t.date "date_of_service"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["animal_id"], name: "index_bookings_on_animal_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+  create_table 'bookings', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.integer 'animal_id', null: false
+    t.integer 'hours_requested'
+    t.date 'date_of_service'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['animal_id'], name: 'index_bookings_on_animal_id'
+    t.index ['user_id'], name: 'index_bookings_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'first_name'
+    t.string 'last_name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "bookings", "animals"
-  add_foreign_key "bookings", "users"
+  add_foreign_key 'bookings', 'animals'
+  add_foreign_key 'bookings', 'users'
 end

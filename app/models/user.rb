@@ -3,7 +3,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   before_validation :trim_names
 
-
   private
 
   def trim_names
