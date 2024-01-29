@@ -34,7 +34,7 @@ rails db:seed
 4. Run the server. This project is using tailwind css, so run the server with the following command
 
 ```bash
-rails bin/dev
+bin/dev
 ```
 
 Running the Tests
