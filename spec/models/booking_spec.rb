@@ -1,10 +1,9 @@
-# spec/models/booking_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe Booking, type: :model do
   describe '#cost' do
-    let(:booking) { create(:booking, user_attributes: { first_name: 'John', last_name: 'Doe' }, animal_attributes: { name: 'Rex', animal_type: animal_type }, hours_requested: hours_requested, date_of_service: Date.tomorrow) }
+    let(:user) { create(:user) }
+    let(:booking) { create(:booking, user: user, animal_attributes: { name: 'Rex', animal_type: animal_type }, hours_requested: hours_requested, date_of_service: Date.tomorrow) }
 
     context 'when the animal is a dog' do
       let(:animal_type) { 'Dog' }

@@ -1,5 +1,3 @@
-# spec/models/user_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -15,7 +13,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#trim_names' do
-    let(:user) { create(:user, first_name: ' John ', last_name: ' Doe ') }
+    let(:user) { build(:user, first_name: ' John ', last_name: ' Doe ') }
 
     it 'trims leading and trailing whitespace from first_name and last_name' do
       user.valid?

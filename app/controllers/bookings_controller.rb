@@ -20,7 +20,8 @@ class BookingsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = @booking.errors.full_messages.join(", ")
-      render :new
+      redirect_to root_path
+      #Ideally I would not redirect here, I would render :new, but I'm having trouble getting the form errors to be displayed when the form fields are not valid, so I'm redirecting to show the errors. I think this a rails 7 issue.
     end
   end
   
