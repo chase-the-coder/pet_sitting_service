@@ -6,6 +6,10 @@ This is a Rails application that uses Tailwind CSS for styling and RSpec for tes
 
 This application uses Ruby version 3.1.2.
 
+## Database
+
+This application uses SQLite for development and testing.
+
 ## Setup
 
 1. Clone the repository:
