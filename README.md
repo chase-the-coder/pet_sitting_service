@@ -41,7 +41,8 @@ rails db:seed
 bin/dev
 ```
 
-Running the Tests
+## Testing
+
 This application uses RSpec for testing. To run the tests, use:
 
 ```bash
